@@ -13,7 +13,7 @@ class AuthController extends Controller
     public function login(LoginRequest $request){
         $credentials = request(['email', 'password']);
         if(!Auth::attempt($credentials)){
-            return response()->json(['message'=>'Unauthorized'],401);
+            return response()->json(['message'=>'Email or Password not correct!'],422);
         }
         $user = $request->user();
         $tokenResult = $user->createToken('Personal Access Token');
