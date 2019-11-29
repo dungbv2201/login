@@ -18,6 +18,8 @@ Route::group(['middleware' => 'cors'], function () {
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('users-info', 'AuthController@getUserInfo');
         Route::post('logout', 'AuthController@logout');
+
+        Route::get('users','UserController@index');
     });
     Route::post('login', 'AuthController@login');
 });
