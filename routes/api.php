@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => 'cors'], function () {
-    Route::group(['middleware' => 'auth:api'], function () {
-        Route::get('users-info', 'AuthController@getUserInfo');
-        Route::post('logout', 'AuthController@logout');
-    });
-    Route::post('login', 'AuthController@login');
+//Route::group(['middleware' => 'cors'], function () {
+//
+//});
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::get('users-info', 'AuthController@getUserInfo');
+    Route::post('logout', 'AuthController@logout');
 });
+Route::post('login', 'AuthController@login');
