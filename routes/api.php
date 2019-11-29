@@ -20,6 +20,7 @@ Route::group(['middleware' => 'cors'], function () {
         Route::post('logout', 'AuthController@logout');
 
         Route::get('users','UserController@index');
+        Route::post('users/store','UserController@store');
     });
     Route::post('login', 'AuthController@login');
 });
